@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking Simulation</title>
+    <style>
+        body {
+            background-color: black;
+            color: green;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding-top: 20%;
+        }
+        #output {
+            white-space: pre;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        #input {
+            color: green;
+            background-color: black;
+            border: none;
+            outline: none;
+            font-size: 20px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="output"></div>
+    <input id="input" type="text" autofocus />
+    <script>
+        const output = document.getElementById('output');
+        const input = document.getElementById('input');
+
+        const messages = [
+            "Initializing hacking sequence...",
+            "Bypassing security protocols...",
+            "Accessing mainframe...",
+            "Decrypting files related to Zaf...",
+            "Downloading sensitive data...",
+            "Error: Access Denied!",
+            "Re-attempting...",
+            "Hacking attempt on Zaf's account failed.",
+            "Just kidding! You're safe, Zaf!"
+        ];
+
+        let i = 0;
+
+        function displayMessage() {
+            if (i < messages.length) {
+                output.textContent += messages[i] + '\n';
+                i++;
+                setTimeout(displayMessage, 2000);
+            } else {
+                output.textContent += "Hacking complete.\n";
+                output.textContent += "Press any key to exit.";
+                input.style.display = 'none'; // Hide input after messages
+            }
+        }
+
+        displayMessage();
+
+        // Optional: Add a keypress event to clear the screen
+        document.addEventListener('keypress', () => {
+            output.textContent = '';
+            input.style.display = 'block'; // Show input again
+            input.focus();
+        });
+    </script>
+</body>
+</html>
